@@ -43,6 +43,6 @@ function cambioConversacion() {
 	var imagenCambio = this.childNodes[1].childNodes[1].getAttribute("src");
 	foto.setAttribute("src", imagenCambio);
 	user.style.display = "none";
-	var nombreCambio = this.childNodes[1].childNodes[2];
-	contact.innerHTML = nombreCambio;
+	var nombreCambio = this.childNodes[1].children[1].textContent;
+	contact.textContent = nombreCambio;
 }
