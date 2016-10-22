@@ -9,33 +9,42 @@ var user = document.getElementById("user-profile");
 var contact = document.getElementById("contact");
 
 function cargarPagina() {
-	
+		
+	mensajes.focus();
 	mensajes.addEventListener("keyup", enviarMensaje);
-	for(var i = 0, longitud = otraConversacion.length; i < longitud; i++) {
+	for (var i = 0, longitud = otraConversacion.length; i < longitud; i++) {
 		otraConversacion[i].addEventListener("click", cambioConversacion);
 	}
 }
 
 function enviarMensaje(e) {
 	var texto = mensajes.value.trim();
-	if(e.keyCode == 13) {
-		var burbuja = document.createElement("div");
-		burbuja.classList.add("w-message", "w-message-out");
-		var box = document.createElement("div");
-		box.classList.add("w-message-text");
-		var parrafo = document.createElement("p");
-		parrafo.textContent = texto;
-		conversacion.appendChild(burbuja);
-		burbuja.appendChild(box);
-		box.appendChild(parrafo);
-		var hora = document.createElement("div");
-		hora.classList.add("time");
-		box.appendChild(hora);
-		var f = new Date();
-		var h = f.getHours();
-		var m = f.getMinutes();
-		hora.textContent = h + ":" + m;
-		mensajes.value = "";
+	if (e.keyCode == 13) {
+
+		if (existeMensaje(mensajes.value)) {
+			var burbuja = document.createElement("div");
+			burbuja.classList.add("w-message", "w-message-out");
+			burbuja.id = "posicion";
+
+			var box = document.createElement("div");
+			box.classList.add("w-message-text");
+
+			var parrafo = document.createElement("p");
+			parrafo.textContent = texto;
+
+			conversacion.appendChild(burbuja);
+			burbuja.appendChild(box);
+			box.appendChild(parrafo);
+
+			var hora = document.createElement("div");
+			hora.classList.add("time");
+			var mostrarHora = horaActual();
+			hora.textContent = mostrarHora;
+			box.appendChild(hora);
+			
+			mensajes.value = "";
+			document.getElementById("posicion").scrollIntoView(true);
+		}
 	}
 }
 
@@ -45,4 +54,24 @@ function cambioConversacion() {
 	user.style.display = "none";
 	var nombreCambio = this.childNodes[1].children[1].textContent;
 	contact.textContent = nombreCambio;
+}
+
+function horaActual() {
+	var f = new Date();
+	var h = f.getHours();
+	var m = f.getMinutes();
+	if (m < 10) {
+		m = "0" + m;
+	}
+	var hora = h + ":" + m;
+	return hora;
+}
+
+function existeMensaje(mensaje) {
+	mensaje = mensaje.trim();
+	if (mensaje.length == 0) {
+		return false;
+	} else {
+		return true;
+	}
 }
