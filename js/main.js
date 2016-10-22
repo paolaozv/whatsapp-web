@@ -7,6 +7,7 @@ var otraConversacion = document.getElementsByClassName("otraConversacion");
 var foto = document.getElementById("image-profile");
 var user = document.getElementById("user-profile");
 var contact = document.getElementById("contact");
+var msn = document.getElementsByClassName("msn");
 
 function cargarPagina() {
 		
@@ -18,16 +19,15 @@ function cargarPagina() {
 }
 
 function enviarMensaje(e) {
+
 	var texto = mensajes.value.trim();
 	if (e.keyCode == 13) {
 
 		if (existeMensaje(mensajes.value)) {
-			var burbuja = document.createElement("div");
-			burbuja.classList.add("w-message", "w-message-out");
+			var burbuja = crearElemento("div", ["w-message", "w-message-out"]);
 			burbuja.id = "posicion";
 
-			var box = document.createElement("div");
-			box.classList.add("w-message-text");
+			var box = crearElemento("div", ["w-message-text"]);
 
 			var parrafo = document.createElement("p");
 			parrafo.textContent = texto;
@@ -36,8 +36,7 @@ function enviarMensaje(e) {
 			burbuja.appendChild(box);
 			box.appendChild(parrafo);
 
-			var hora = document.createElement("div");
-			hora.classList.add("time");
+			var hora = crearElemento("div", ["time"]);
 			var mostrarHora = horaActual();
 			hora.textContent = mostrarHora;
 			box.appendChild(hora);
@@ -49,11 +48,49 @@ function enviarMensaje(e) {
 }
 
 function cambioConversacion() {
-	var imagenCambio = this.childNodes[1].childNodes[1].getAttribute("src");
-	foto.setAttribute("src", imagenCambio);
+
+	var conversacion = this.childNodes[1];	
+	var imagenCambio = conversacion.childNodes[1].src;
+	foto.src = imagenCambio;
+
 	user.style.display = "none";
-	var nombreCambio = this.childNodes[1].children[1].textContent;
+
+	var nombreCambio = conversacion.children[1].textContent;
 	contact.textContent = nombreCambio;
+
+	for (var i = 0, longitud = msn.length; i < longitud; i++) {
+		msn[i].style.display = "none";
+	}
+
+	if (this == otraConversacion[0]) {
+		for (var i = 0, longitud = msn.length; i < longitud; i++) {
+			msn[i].style.display = "block";
+		}
+		user.style.display = "block";
+	} else {
+		var elemento = this.firstElementChild;
+
+		var div = crearElemento("div", ["w-message", "w-message-in"]);
+		chat.appendChild(div);
+
+		var divMessage = crearElemento("div", ["w-message-text"]);
+		div.appendChild(divMessage);
+
+		var nombre = document.createElement("h5");
+		var contenido = elemento.children[1].textContent;
+		nombre.textContent = contenido;
+		divMessage.appendChild(nombre);
+
+		var textoMensaje = document.createElement("p");
+		var contenidoMensaje = elemento.children[2].textContent;
+		textoMensaje.textContent = contenidoMensaje;
+		divMessage.appendChild(textoMensaje);
+
+		var horaMensaje = crearElemento("div", ["time"]);
+		var contenidoHora = this.lastElementChild.textContent;
+		horaMensaje.textContent = contenidoHora;
+		divMessage.appendChild(horaMensaje);
+	}
 }
 
 function horaActual() {
@@ -74,4 +111,15 @@ function existeMensaje(mensaje) {
 	} else {
 		return true;
 	}
+}
+
+function crearElemento(etiqueta, clases = []) {
+	var elemento = document.createElement(etiqueta);
+	var l = clases.length;
+	if(l > 0) {
+		for(var i = 0; i < l; i++) {
+			elemento.classList.add(clases[i]);
+		}
+	}
+	return elemento;
 }
