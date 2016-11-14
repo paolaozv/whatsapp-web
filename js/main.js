@@ -8,6 +8,7 @@ var foto = document.getElementById("image-profile");
 var user = document.getElementById("user-profile");
 var contact = document.getElementById("contact");
 var msn = document.getElementsByClassName("msn");
+var contador = 1;
 
 function cargarPagina() {
 		
@@ -19,13 +20,13 @@ function cargarPagina() {
 }
 
 function enviarMensaje(e) {
-
+	
 	var texto = mensajes.value.trim();
 	if (e.keyCode == 13) {
 
 		if (existeMensaje(mensajes.value)) {
 			var burbuja = crearElemento("div", ["w-message", "w-message-out"]);
-			burbuja.id = "posicion";
+			burbuja.id = "posicion" + contador;
 
 			var box = crearElemento("div", ["w-message-text"]);
 
@@ -42,8 +43,9 @@ function enviarMensaje(e) {
 			box.appendChild(hora);
 			
 			mensajes.value = "";
-			document.getElementById("posicion").scrollIntoView(true);
+			document.getElementById("posicion" + contador).scrollIntoView(true);
 		}
+	contador++;
 	}
 }
 
