@@ -1,0 +1,70 @@
+{
+	"conversaciones": [
+		{
+			"contacto": "Laboratoria Perú",
+			"imagen": "image/logocodeacademy.png",
+			"ultimaConversacion": "No se pique!!",
+			"hora": "14:27"
+		},
+		{
+			"contacto": "Raymi Saldomando",
+			"imagen": "image/raymi.jpg",
+			"ultimaConversacion": "La clase va bien!",
+			"hora": "11:25"
+		},
+		{
+			"contacto": "Mariana Costa",
+			"imagen": "image/mariana.jpg",
+			"ultimaConversacion": "El panel de speakers está buenazo",
+			"hora": "09:25"
+		},
+		{
+			"contacto": "Ana María Martinez Franklin",
+			"imagen": "image/anamaria.jpg",
+			"ultimaConversacion": "Pues dale chamo!",
+			"hora": "Ayer"
+		},
+		{
+			"contacto": "Rodulfo Prieto",
+			"imagen": "image/rodulfo.jpg",
+			"ultimaConversacion": "¿Cómo van las chicas?",
+			"hora": "Martes"
+		},
+		{
+			"contacto": "Andrea Lamas",
+			"imagen": "image/andrea.jpg",
+			"ultimaConversacion": "Hoy me toca clases de canto, yee!",
+			"hora": "Lunes"
+		},
+		{
+			"contacto": "Maria Paula Rivarola",
+			"imagen": "image/mariapaula.jpg",
+			"ultimaConversacion": "Wuju! esto me encanta!! en verdad!",
+			"hora": "13/01/2016"
+		},
+		{
+			"contacto": "Katy Sanchez",
+			"imagen": "image/katy.jpg",
+			"ultimaConversacion": "No te preocupes, tengo el salón bajo control",
+			"hora": "11/01/2016"
+		},
+		{
+			"contacto": "Aldo Alfaro",
+			"imagen": "image/aldo.jpg",
+			"ultimaConversacion": "Vao a comer?",
+			"hora": "03/01/2016"
+		},
+		{
+			"contacto": "Laboratoria Currícula",
+			"imagen": "image/curricula.jpg",
+			"ultimaConversacion": "Gian: Ya está lista la unidad 2",
+			"hora": "03/01/2016"
+		},
+		{
+			"contacto": "José L. Lee Rázuri",
+			"imagen": "image/jose.jpg",
+			"ultimaConversacion": "Estoy bajando con Aldo, vao a comer?",
+			"hora": "03/01/2016"
+		}
+	]
+}

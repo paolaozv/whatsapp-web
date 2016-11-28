@@ -1,0 +1,28 @@
+{
+  "name": "whatsapp-web",
+  "version": "1.0.0",
+  "description": "chat",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/paolaozv/whatsapp-web.git"
+  },
+  "keywords": [
+    "js",
+    "ajax",
+    "express"
+  ],
+  "author": "Paola Ortiz de Zevallos",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/paolaozv/whatsapp-web/issues"
+  },
+  "homepage": "https://github.com/paolaozv/whatsapp-web#readme",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
+}
