@@ -94,7 +94,7 @@ function crearElemento(etiqueta, clases = []) {
 function cambioConversacion() {
 	var self = this;
 	$.ajax({
-		url: "http://localhost:3005/demo.json",
+		url: window.location.href + "demo.json",
 		type: "GET",
 		success: function(response) {
 			var data = $(self).attr("data");
@@ -109,49 +109,3 @@ function cambioConversacion() {
 		}
 	});
 }
-
-/*function cambioConversacion() {
-
-	var conversacion = this.childNodes[1];	
-	var imagenCambio = conversacion.childNodes[1].src;
-	foto.src = imagenCambio;
-
-	user.style.display = "none";
-
-	var nombreCambio = conversacion.children[1].textContent;
-	contact.textContent = nombreCambio;
-
-	for (var i = 0, longitud = msn.length; i < longitud; i++) {
-		msn[i].style.display = "none";
-	}
-
-	if (this == otraConversacion[0]) {
-		for (var i = 0, longitud = msn.length; i < longitud; i++) {
-			msn[i].style.display = "block";
-		}
-		user.style.display = "block";
-	} else {
-		var elemento = this.firstElementChild;
-
-		var div = crearElemento("div", ["w-message", "w-message-in"]);
-		chat.appendChild(div);
-
-		var divMessage = crearElemento("div", ["w-message-text"]);
-		div.appendChild(divMessage);
-
-		var nombre = document.createElement("h5");
-		var contenido = elemento.children[1].textContent;
-		nombre.textContent = contenido;
-		divMessage.appendChild(nombre);
-
-		var textoMensaje = document.createElement("p");
-		var contenidoMensaje = elemento.children[2].textContent;
-		textoMensaje.textContent = contenidoMensaje;
-		divMessage.appendChild(textoMensaje);
-
-		var horaMensaje = crearElemento("div", ["time"]);
-		var contenidoHora = this.lastElementChild.textContent;
-		horaMensaje.textContent = contenidoHora;
-		divMessage.appendChild(horaMensaje);
-	}
-}*/
